@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jardín Zen - Sushi & Cocina del Mundo | Bahía Blanca</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts (Cinzel for Headers, Plus Jakarta Sans for Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0f1412',
+                            card: '#161d19',
+                            bamboo: '#2e5a44',
+                            emerald: '#10b981',
+                            gold: '#d4af37',
+                            goldHover: '#b89628',
+                            sand: '#e8e4d9',
+                            muted: '#9ba39e'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Cinzel', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0f1412;
+            color: #e8e4d9;
+        }
+        .font-cinzel {
+            font-family: 'Cinzel', serif;
+        }
+        .bg-pattern {
+            background-image: radial-gradient(rgba(46, 90, 68, 0.15) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+        .glass-panel {
+            background: rgba(22, 29, 25, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.12);
+        }
+        .glass-card {
+            background: rgba(26, 35, 30, 0.6);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            border-color: rgba(212, 175, 55, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f1412;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2e5a44;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d4af37;
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-brand-sand bg-pattern antialiased selection:bg-brand-gold selection:text-brand-dark">
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="bg-brand-bamboo/80 text-brand-sand text-xs md:text-sm py-2 px-4 text-center backdrop-blur-md border-b border-brand-gold/20 flex justify-between items-center max-w-full overflow-x-auto">
+        <div class="container mx-auto flex justify-between items-center px-2">
+            <span class="flex items-center gap-2">
+                <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <strong>Abierto hoy:</strong> Cierra a las 11:45 p.m.
+            </span>
+            <div class="flex items-center gap-4 text-xs">
+                <a href="tel:02914465466" class="hover:text-brand-gold transition flex items-center gap-1">
+                    <i class="fa-solid fa-phone"></i> 0291 446-5466
+                </a>
+                <span class="hidden sm:inline text-brand-muted">|</span>
+                <span class="hidden sm:inline-flex items-center gap-1 text-brand-sand/80">
+                    <i class="fa-solid fa-location-dot text-brand-gold"></i> Av. Colón 59, Bahía Blanca
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN NAVBAR -->
+    <header class="sticky top-0 z-40 glass-panel border-b border-brand-gold/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- LOGO -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-11 h-11 rounded-full bg-gradient-to-tr from-brand-bamboo to-brand-gold p-0.5 shadow-lg group-hover:scale-105 transition duration-300">
+                        <div class="w-full h-full bg-brand-dark rounded-full flex items-center justify-center">
+                            <i class="fa-solid fa-fan text-brand-gold text-lg group-hover:rotate-180 transition duration-700"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="font-cinzel text-xl md:text-2xl font-bold tracking-wider text-brand-sand block leading-tight">JARDÍN ZEN</span>
+                        <span class="text-[10px] tracking-[0.2em] text-brand-gold uppercase block font-medium">Sushi & Cocina del Mundo</span>
+                    </div>
+                </a>
+
+                <!-- DESKTOP NAVIGATION -->
+                <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+                    <a href="#menu" class="hover:text-brand-gold transition-colors duration-200">Menú</a>
+                    <a href="#experiencia" class="hover:text-brand-gold transition-colors duration-200">Experiencia</a>
+                    <a href="#info" class="hover:text-brand-gold transition-colors duration-200">Ubicación & Info</a>
+                    <a href="#resenas" class="hover:text-brand-gold transition-colors duration-200">Opiniones</a>
+                </nav>
+
+                <!-- CTA BUTTONS -->
+                <div class="hidden sm:flex items-center gap-3">
+                    <a href="https://menu.fu.do/jardinzen" target="_blank" rel="noopener" class="px-5 py-2.5 rounded-full bg-brand-gold hover:bg-brand-goldHover text-brand-dark font-semibold text-sm transition-all shadow-md hover:shadow-brand-gold/20 flex items-center gap-2">
+                        <i class="fa-solid fa-utensils"></i>
+                        <span>Pedir Online</span>
+                    </a>
+                </div>
+
+                <!-- MOBILE MENU BUTTON -->
+                <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg text-brand-sand hover:text-brand-gold focus:outline-none">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- MOBILE NAVIGATION DROPDOWN -->
+        <div id="mobileMenu" class="hidden md:hidden glass-panel border-t border-brand-gold/10 px-4 pt-2 pb-6 space-y-3">
+            <a href="#menu" class="block py-2 text-brand-sand hover:text-brand-gold transition">Menú</a>
+            <a href="#experiencia" class="block py-2 text-brand-sand hover:text-brand-gold transition">Experiencia</a>
+            <a href="#info" class="block py-2 text-brand-sand hover:text-brand-gold transition">Ubicación & Info</a>
+            <a href="#resenas" class="block py-2 text-brand-sand hover:text-brand-gold transition">Opiniones</a>
+            <div class="pt-2 flex flex-col gap-2">
+                <a href="https://menu.fu.do/jardinzen" target="_blank" rel="noopener" class="w-full text-center py-3 rounded-xl bg-brand-gold text-brand-dark font-bold text-sm">
+                    <i class="fa-solid fa-bag-shopping mr-2"></i> Pedir Online (menu.fu.do/jardinzen)
+                </a>
+                <a href="tel:02914465466" class="w-full text-center py-3 rounded-xl border border-brand-gold/30 text-brand-sand font-medium text-sm">
+                    <i class="fa-solid fa-phone mr-2"></i> Llamar al Restaurante
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-[85vh] flex items-center justify-center overflow-hidden py-16 px-4">
+        <!-- Ambient Background Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?q=80&w=1600&auto=format&fit=crop" 
+                 alt="Sushi Background" 
+                 class="w-full h-full object-cover opacity-20 filter blur-sm scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/80 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto text-center space-y-6">
+            <!-- Badges -->
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-bamboo/40 border border-brand-gold/30 text-xs md:text-sm text-brand-sand backdrop-blur-md">
+                <span class="text-brand-gold"><i class="fa-solid fa-star"></i> 4.1</span>
+                <span class="text-brand-muted">•</span>
+                <span>1,381 Opiniones en Google</span>
+                <span class="text-brand-muted">•</span>
+                <span class="text-brand-gold font-medium">$20,000 - $30,000 por persona</span>
+            </div>
+
+            <!-- Main Heading -->
+            <h1 class="font-cinzel text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-brand-sand leading-tight">
+                Armonía de Sabores <br class="hidden sm:inline">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold via-amber-200 to-brand-gold">
+                    en Bahía Blanca
+                </span>
+            </h1>
+
+            <p class="max-w-2xl mx-auto text-base sm:text-lg text-brand-sand/80 font-light leading-relaxed">
+                Descubrí la fusión perfecta entre la alta gastronomía japonesa y los sabores más exquisitos del mundo. Una experiencia culinaria zen e inolvidable.
+            </p>
+
+            <!-- Quick Action Buttons -->
+            <div class="flex flex-wrap justify-center items-center gap-4 pt-4">
+                <a href="#menu" class="px-8 py-4 rounded-full bg-brand-gold hover:bg-brand-goldHover text-brand-dark font-bold text-base transition-all shadow-lg hover:shadow-brand-gold/30 transform hover:-translate-y-0.5">
+                    <i class="fa-solid fa-book-open mr-2"></i> Ver Menú Interactivo
+                </a>
+                <a href="https://menu.fu.do/jardinzen" target="_blank" rel="noopener" class="px-8 py-4 rounded-full bg-brand-card hover:bg-brand-bamboo border border-brand-gold/30 text-brand-sand font-semibold text-base transition-all backdrop-blur-md">
+                    <i class="fa-solid fa-truck-ramped mr-2"></i> Pedir a Domicilio
+                </a>
+            </div>
+
+            <!-- Service Features Bar -->
+            <div class="pt-12 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto text-xs sm:text-sm text-brand-sand/70">
+                <div class="glass-card p-3 rounded-xl flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-utensils text-brand-gold text-base"></i>
+                    <span>Consumo en Local</span>
+                </div>
+                <div class="glass-card p-3 rounded-xl flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-bag-shopping text-brand-gold text-base"></i>
+                    <span>Para Llevar</span>
+                </div>
+                <div class="glass-card p-3 rounded-xl flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-shield-heart text-brand-gold text-base"></i>
+                    <span>Entrega sin Contacto</span>
+                </div>
+                <a href="https://menu.fu.do/jardinzen" target="_blank" rel="noopener" class="glass-card p-3 rounded-xl flex items-center justify-center gap-2 hover:border-brand-gold/50 transition">
+                    <i class="fa-solid fa-laptop text-brand-gold text-base"></i>
+                    <span>Pedidos Online</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- MENU INTERACTIVO SECTION -->
+    <section id="menu" class="py-20 px-4 max-w-7xl mx-auto scroll-mt-20">
+        <!-- Section Header -->
+        <div class="text-center space-y-3 mb-12">
+            <span class="text-brand-gold text-xs uppercase tracking-[0.25em] font-semibold">Carta Culinaria</span>
+            <h2 class="font-cinzel text-3xl sm:text-5xl font-bold text-brand-sand">Nuestro Menú</h2>
+            <div class="w-16 h-0.5 bg-brand-gold mx-auto"></div>
+            <p class="text-brand-muted max-w-lg mx-auto text-sm sm:text-base">
+                Seleccioná una categoría para explorar nuestros platos elaborados con ingredientes de primera frescura.
+            </p>
+        </div>
+
+        <!-- Filter Categories -->
+        <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10 text-sm">
+            <button onclick="filterMenu('all')" class="menu-tab active-tab px-5 py-2.5 rounded-full border border-brand-gold/30 font-medium transition duration-200 bg-brand-gold text-brand-dark">
+                Todos los Platos
+            </button>
+            <button onclick="filterMenu('entradas')" class="menu-tab px-5 py-2.5 rounded-full border border-brand-gold/30 font-medium transition duration-200 bg-brand-card hover:bg-brand-bamboo text-brand-sand">
+                Entradas & Wontons
+            </button>
+            <button onclick="filterMenu('sushi')" class="menu-tab px-5 py-2.5 rounded-full border border-brand-gold/30 font-medium transition duration-200 bg-brand-card hover:bg-brand-bamboo text-brand-sand">
+                Sushi & Rolls
+            </button>
+            <button onclick="filterMenu('woks')" class="menu-tab px-5 py-2.5 rounded-full border border-brand-gold/30 font-medium transition duration-200 bg-brand-card hover:bg-brand-bamboo text-brand-sand">
+                Woks & Principales
+            </button>
+            <button onclick="filterMenu('postres')" class="menu-tab px-5 py-2.5 rounded-full border border-brand-gold/30 font-medium transition duration-200 bg-brand-card hover:bg-brand-bamboo text-brand-sand">
+                Postres & Bebidas
+            </button>
+        </div>
+
+        <!-- Menu Items Grid -->
+        <div id="menuGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- Items rendered via JavaScript -->
+        </div>
+
+        <!-- External Menu Link CTA -->
+        <div class="mt-12 text-center">
+            <a href="https://menu.fu.do/jardinzen" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-brand-gold hover:text-amber-300 font-semibold underline underline-offset-8 transition">
+                <span>Ver la carta completa y digital actualizada en menu.fu.do/jardinzen</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- EXPERIENCIA / VALORES / ATRIBUTOS -->
+    <section id="experiencia" class="py-16 bg-brand-card/50 border-y border-brand-gold/10 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Text Content -->
+                <div class="space-y-6">
+                    <span class="text-brand-gold text-xs uppercase tracking-[0.2em] font-semibold">Identidad & Filosofía</span>
+                    <h2 class="font-cinzel text-3xl sm:text-4xl font-bold leading-tight"> Un Espacio Inclusivo & Gastronomía con Pasión</h2>
+                    <p class="text-brand-sand/80 leading-relaxed font-light text-base">
+                        En **Jardín Zen**, cada plato es una obra de arte diseñada para despertar sensaciones únicas. Nos enorgullece brindar un ambiente cálido, sofisticado y accesible para todos nuestros comensales.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        <div class="p-4 rounded-xl bg-brand-dark/60 border border-brand-gold/15 flex items-start gap-3">
+                            <div class="p-2 rounded-lg bg-pink-500/10 text-pink-400">
+                                <i class="fa-solid fa-venus text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-sm text-brand-sand">Propietarias Mujeres</h4>
+                                <p class="text-xs text-brand-muted mt-0.5">Empresa liderada con visión, sensibilidad y excelencia culinaria.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-brand-dark/60 border border-brand-gold/15 flex items-start gap-3">
+                            <div class="p-2 rounded-lg bg-purple-500/10 text-purple-400">
+                                <i class="fa-solid fa-rainbow text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-sm text-brand-sand">Espacio LGBTQ+ Friendly</h4>
+                                <p class="text-xs text-brand-muted mt-0.5">Un ambiente donde la diversidad es bienvenida y respetada siempre.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature Visual Highlights Grid -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="space-y-4">
+                        <div class="rounded-2xl overflow-hidden border border-brand-gold/20 shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1611143669185-af224c5e3252?q=80&w=800&auto=format&fit=crop" alt="Sushi Masterpiece" class="w-full h-48 sm:h-56 object-cover hover:scale-105 transition duration-500">
+                        </div>
+                        <div class="glass-panel p-5 rounded-2xl border border-brand-gold/20 text-center">
+                            <span class="block font-cinzel text-3xl font-bold text-brand-gold">+1,300</span>
+                            <span class="text-xs text-brand-muted uppercase tracking-wider">Clientes Satisfechos</span>
+                        </div>
+                    </div>
+                    <div class="space-y-4 pt-6">
+                        <div class="glass-panel p-5 rounded-2xl border border-brand-gold/20 text-center">
+                            <span class="block font-cinzel text-3xl font-bold text-brand-gold">4.1 ★</span>
+                            <span class="text-xs text-brand-muted uppercase tracking-wider">Valoración Google</span>
+                        </div>
+                        <div class="rounded-2xl overflow-hidden border border-brand-gold/20 shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?q=80&w=800&auto=format&fit=crop" alt="Asian Wok Gourmet" class="w-full h-48 sm:h-56 object-cover hover:scale-105 transition duration-500">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UBICACIÓN, HORARIOS Y DATOS PRÁCTICOS -->
+    <section id="info" class="py-20 px-4 max-w-7xl mx-auto scroll-mt-20">
+        <div class="text-center space-y-3 mb-14">
+            <span class="text-brand-gold text-xs uppercase tracking-[0.25em] font-semibold">Visítanos</span>
+            <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-brand-sand">Ubicación & Información</h2>
+            <div class="w-16 h-0.5 bg-brand-gold mx-auto"></div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+            <!-- Contact Card 1 -->
+            <div class="glass-card p-6 rounded-2xl space-y-6 flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-brand-bamboo/40 border border-brand-gold/30 flex items-center justify-center text-brand-gold text-xl mb-4">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <h3 class="font-cinzel text-xl font-bold mb-2">Dirección</h3>
+                    <p class="text-brand-sand/80 text-sm leading-relaxed">
+                        Av. Colón 59, B8000 <br>
+                        Bahía Blanca, Provincia de Buenos Aires
+                    </p>
+                    <p class="text-xs text-brand-muted mt-2 font-mono">Plus Code: 7PJJ+7V Bahía Blanca</p>
+                </div>
+                <a href="https://maps.google.com/?q=Av.+Colón+59,+Bahía+Blanca" target="_blank" rel="noopener" class="w-full py-3 rounded-xl border border-brand-gold/40 text-brand-gold hover:bg-brand-gold hover:text-brand-dark transition text-center font-semibold text-sm flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-diamond-turn-right"></i> Cómo llegar
+                </a>
+            </div>
+
+            <!-- Contact Card 2 -->
+            <div class="glass-card p-6 rounded-2xl space-y-6 flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-brand-bamboo/40 border border-brand-gold/30 flex items-center justify-center text-brand-gold text-xl mb-4">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+                    <h3 class="font-cinzel text-xl font-bold mb-2">Horarios & Reservas</h3>
+                    <div class="space-y-2 text-sm text-brand-sand/80">
+                        <div class="flex justify-between border-b border-white/5 pb-2">
+                            <span>Lunes a Domingo</span>
+                            <span class="text-brand-gold font-medium">Hasta 11:45 p.m.</span>
+                        </div>
+                        <div class="flex justify-between pb-1">
+                            <span>Consumo estimado</span>
+                            <span class="text-brand-sand font-medium">$20,000 - $30,000</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <a href="tel:02914465466" class="w-full py-3 rounded-xl bg-brand-bamboo hover:bg-brand-bamboo/80 text-brand-sand transition text-center font-semibold text-sm flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-phone"></i> 0291 446-5466
+                    </a>
+                </div>
+            </div>
+
+            <!-- Contact Card 3 -->
+            <div class="glass-card p-6 rounded-2xl space-y-6 flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-brand-bamboo/40 border border-brand-gold/30 flex items-center justify-center text-brand-gold text-xl mb-4">
+                        <i class="fa-solid fa-globe"></i>
+                    </div>
+                    <h3 class="font-cinzel text-xl font-bold mb-2">Canales Digitales</h3>
+                    <p class="text-brand-sand/80 text-sm mb-4">
+                        Realizá tu pedido de forma directa en nuestra plataforma oficial.
+                    </p>
+                    <div class="space-y-2 text-xs">
+                        <div class="p-3 rounded-lg bg-brand-dark/50 border border-white/5 flex justify-between items-center">
+                            <span>Menú Pedidos</span>
+                            <span class="text-brand-gold font-mono">menu.fu.do/jardinzen</span>
+                        </div>
+                        <div class="p-3 rounded-lg bg-brand-dark/50 border border-white/5 flex justify-between items-center">
+                            <span>Sitio Web</span>
+                            <span class="text-brand-gold font-mono">jardinzen.com.ar</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="https://menu.fu.do/jardinzen" target="_blank" rel="noopener" class="w-full py-3 rounded-xl bg-brand-gold text-brand-dark hover:bg-brand-goldHover transition text-center font-bold text-sm flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-cart-shopping"></i> Ir a Pedir en Línea
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESEÑAS SECCIÓN -->
+    <section id="resenas" class="py-16 bg-brand-card/30 border-t border-brand-gold/10 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center space-y-3 mb-12">
+                <span class="text-brand-gold text-xs uppercase tracking-[0.25em] font-semibold">Testimonios</span>
+                <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-brand-sand">Lo que dicen nuestros clientes</h2>
+                <div class="w-16 h-0.5 bg-brand-gold mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Review 1 -->
+                <div class="glass-card p-6 rounded-2xl space-y-3">
+                    <div class="flex items-center text-brand-gold text-xs gap-1">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-brand-sand/80 text-sm italic">
+                        "Excelente calidad en el sushi. Las piezas de salmón súper frescas y la promo con cerveza rinde muchísimo. Altamente recomendado en Bahía."
+                    </p>
+                    <div class="pt-2 border-t border-white/5 text-xs text-brand-muted">
+                        — Cliente Frecuente (Google Review)
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="glass-card p-6 rounded-2xl space-y-3">
+                    <div class="flex items-center text-brand-gold text-xs gap-1">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-brand-sand/80 text-sm italic">
+                        "La atención es bárbara y el lugar re amigable y tranquilo. Los Wontons de mar y el Chaw Mien son imperdibles."
+                    </p>
+                    <div class="pt-2 border-t border-white/5 text-xs text-brand-muted">
+                        — Usuario de Google Maps
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="glass-card p-6 rounded-2xl space-y-3">
+                    <div class="flex items-center text-brand-gold text-xs gap-1">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <p class="text-brand-sand/80 text-sm italic">
+                        "Sushidog increible y los mojitos de frutos rojos de 10. Muy buena opción para pedir a domicilio o ir a cenar tranqui."
+                    </p>
+                    <div class="pt-2 border-t border-white/5 text-xs text-brand-muted">
+                        — Reseña Verificada
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-dark border-t border-brand-gold/20 pt-12 pb-8 px-4">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <div class="space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-brand-gold flex items-center justify-center text-brand-dark font-bold">
+                        <i class="fa-solid fa-fan text-xs"></i>
+                    </div>
+                    <span class="font-cinzel text-lg font-bold text-brand-sand">Jardín Zen</span>
+                </div>
+                <p class="text-xs text-brand-muted leading-relaxed">
+                    Sushi & Cocina del Mundo. El equilibrio perfecto entre frescura, tradición oriental y vanguardia.
+                </p>
+            </div>
+
+            <div>
+                <h4 class="font-cinzel text-sm font-bold text-brand-gold mb-3 uppercase tracking-wider">Servicios</h4>
+                <ul class="space-y-2 text-xs text-brand-sand/70">
+                    <li><i class="fa-solid fa-angle-right text-brand-gold mr-1"></i> Consumo en el lugar</li>
+                    <li><i class="fa-solid fa-angle-right text-brand-gold mr-1"></i> Para llevar (Take Away)</li>
+                    <li><i class="fa-solid fa-angle-right text-brand-gold mr-1"></i> Delivery / Entrega sin contacto</li>
+                    <li><a href="https://menu.fu.do/jardinzen" target="_blank" rel="noopener" class="hover:text-brand-gold transition"><i class="fa-solid fa-angle-right text-brand-gold mr-1"></i> Pedidos en línea</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-cinzel text-sm font-bold text-brand-gold mb-3 uppercase tracking-wider">Contacto</h4>
+                <ul class="space-y-2 text-xs text-brand-sand/70">
+                    <li><i class="fa-solid fa-phone text-brand-gold mr-1"></i> 0291 446-5466</li>
+                    <li><i class="fa-solid fa-location-dot text-brand-gold mr-1"></i> Av. Colón 59, Bahía Blanca</li>
+                    <li><i class="fa-solid fa-clock text-brand-gold mr-1"></i> Lunes a Dom. hasta las 23:45 h</li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-cinzel text-sm font-bold text-brand-gold mb-3 uppercase tracking-wider">Inclusividad</h4>
+                <div class="flex flex-wrap gap-2 text-xs">
+                    <span class="px-2.5 py-1 rounded-md bg-brand-card border border-brand-gold/20 text-brand-sand">
+                        🏳️‍🌈 LGBTQ+ Friendly
+                    </span>
+                    <span class="px-2.5 py-1 rounded-md bg-brand-card border border-brand-gold/20 text-brand-sand">
+                        👩 Propietarias Mujeres
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto pt-6 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center text-xs text-brand-muted gap-4">
+            <p>© <span id="year"></span> Jardín Zen - Sushi & Cocina del Mundo. Todos los derechos reservados.</p>
+            <p>Bahía Blanca, Buenos Aires, Argentina</p>
+        </div>
+    </footer>
+
+    <!-- MODAL DETALLE DE PLATOS -->
+    <div id="itemModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="glass-panel border border-brand-gold/30 rounded-2xl max-w-lg w-full p-6 space-y-4 relative transform transition-all scale-95 opacity-0" id="modalContent">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-brand-muted hover:text-brand-gold text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div id="modalBody">
+                <!-- Content inserted via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Menu Data constructed from the provided photos and information
+        const menuItems = [
+            // Entradas & Wontons
+            {
+                id: 1,
+                name: "Won Ton del Mar",
+                category: "entradas",
+                badge: "Popular",
+                price: "8 Unidades",
+                desc: "Crujientes wontons rellenos de selección de mariscos acompañados de salsa agridulce especial.",
+                img: "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?q=80&w=600&auto=format&fit=crop"
+            },
+            {
+                id: 2,
+                name: "Wong Ton de Cerdo",
+                category: "entradas",
+                badge: "Especial",
+                price: "Porción",
+                desc: "Empanaditas chinas fritas rellenas de cerdo especiado con flores comestibles y salsa de la casa.",
+                img: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?q=80&w=600&auto=format&fit=crop"
+            },
+            {
+                id: 3,
+                name: "Rabas Doradas",
+                category: "entradas",
+                badge: "Clásico",
+                price: "Para Compartir",
+                desc: "Anillos de calamar tiernos rebozados y fritos al punto justo con limones frescos.",
+                img: "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?q=80&w=600&auto=format&fit=crop"
+            },
+            {
+                id: 4,
+                name: "Papas Rústicas Jardín Zen",
+                category: "entradas",
+                badge: "Popular",
+                price: "Porción",
+                desc: "Papas cortadas a mano estilo rústico salteadas con toques de la casa y ciboulette.",
+                img: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?q=80&w=600&auto=format&fit=crop"
+            },
+
+            // Sushi & Rolls
+            {
+                id: 5,
+                name: "Sushidog Langostinos",
+                category: "sushi",
+                badge: "Popular",
+                price: "2 Unidades",
+                desc: "Innovador hot roll en formato hotdog relleno de langostinos crocantes, palta y topping de salmón picado.",
+                img: "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?q=80&w=600&auto=format&fit=crop"
+            },
+            {
+                id: 6,
+                name: "Combo Clásico",
+                category: "sushi",
+                badge: "Recomendado",
+                price: "Variado",
+                desc: "Selección de rolls tradicionales, niguiris de salmón y maki rolls con sésamo negro.",
+                img: "https://images.unsplash.com/photo-1611143669185-af224c5e3252?q=80&w=600&auto=format&fit=crop"
+            },
+            {
+                id: 7,
+                name: "Rolls y Geishas de Salmón",
+                category: "sushi",
+                badge: "Premium",
+                price: "Surtido",
+                desc: "Finos cortes de salmón envueltos en queso crema y palta junto a rolls gourmet de salmón fresco.",
+                img: "https://images.unsplash.com/photo-1563245372-f21724e3856d?q=80&w=600&auto=format&fit=crop"
+            },
+            {
+                id: 8,
+                name: "Promo 10 Piezas Salmón + Cerveza",
+                category: "sushi",
+                badge: "Super Promo",
+                price: "Especial",
+                desc: "Combina 10 piezas seleccionadas de salmón rosa con cerveza fría a elección.",
+                img: "https://images.unsplash.com/photo-1553621042-f6e147245754?q=80&w=600&auto=format&fit=crop"
+            },
+            {
+                id: 9,
+                name: "Sushi Libre (Experiencia Zen)",
+                category: "sushi",
+                badge: "Favorito",
+                price: "Por Persona",
+                desc: "Disfrutá de rondas ilimitadas de nuestras mejores tablas de sushi directo a tu mesa.",
+                img: "https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?q=80&w=600&auto=format&fit=crop"
+            },
+
+            // Woks & Principales
+            {
+                id: 10,
+                name: "Chop Suey",
+                category: "woks",
+                badge: "Popular",
+                price: "Plato Principal",
+                desc: "Vegetales frescos salteados al wok a fuego fuerte con arroz aromatizado y toques de soja.",
+                img: "https://images.unsplash.com/photo-1512058564366-18510be2db19?q=80&w=600&auto=format&fit=crop"
+            },
+            {
+                id: 11,
+                name: "Chaw Mien",
+                category: "woks",
+                badge: "Popular",
+                price: "Plato Principal",
+                desc: "Fideos salteados al wok estilo oriental con finas tiritas de vegetales y salsa suave de la casa.",
+                img: "https://images.unsplash.com/photo-1585032226651-759b368d7246?q=80&w=600&auto=format&fit=crop"
+            },
+            {
+                id: 12,
+                name: "Chaw Mi FEN",
+                category: "woks",
+                badge: "Popular",
+                price: "Plato Principal",
+                desc: "Fideos finos de arroz salteados con brotes, semillas de sésamo y vegetales crujientes.",
+                img: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?q=80&w=600&auto=format&fit=crop"
+            },
+            {
+                id: 13,
+                name: "Wok del Mar",
+                category: "woks",
+                badge: "Chef Pick",
+                price: "Plato Principal",
+                desc: "Salteado oriental con langostinos, calamares y pescados blancos sobre fideos o arroz.",
+                img: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?q=80&w=600&auto=format&fit=crop"
+            },
+            {
+                id: 14,
+                name: "Wok Veggie Bowl",
+                category: "woks",
+                badge: "Healthy",
+                price: "Bowl",
+                desc: "Mezcla saludable de vegetales de estación al wok sobre colchón de arroz integral o fideos.",
+                img: "https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=600&auto=format&fit=crop"
+            },
+            {
+                id: 15,
+                name: "Ensalada Ebi",
+                category: "woks",
+                badge: "Popular",
+                price: "Ensalada",
+                desc: "Langostinos frescos, vegetales mixtos, palta, sésamo y aderezo especial de la casa.",
+                img: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=600&auto=format&fit=crop"
+            },
+            {
+                id: 16,
+                name: "Ensalada Kanikama",
+                category: "woks",
+                badge: "Fresca",
+                price: "Ensalada",
+                desc: "Kanikama desmenuzado, brotes, tomate cherry, palta y hojas verdes seleccionadas.",
+                img: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=600&auto=format&fit=crop"
+            },
+
+            // Postres & Bebidas
+            {
+                id: 17,
+                name: "Cheesecake con Frutos Rojos",
+                category: "postres",
+                badge: "Popular",
+                price: "Porción",
+                desc: "Cremosa tarta de queso sobre crocante base de galleta con salsa artesanal de frutos rojos.",
+                img: "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?q=80&w=600&auto=format&fit=crop"
+            },
+            {
+                id: 18,
+                name: "Mojitos Tradicional & Frutos Rojos",
+                category: "postres",
+                badge: "Coctelería",
+                price: "Trago",
+                desc: "Tragos refrescantes preparados con hierbabuena fresca, ron premium y toque de frutos rojos.",
+                img: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=600&auto=format&fit=crop"
+            },
+            {
+                id: 19,
+                name: "Cerveza Artesanal / Embotellada",
+                category: "postres",
+                badge: "Bebida",
+                price: "Consultar",
+                desc: "Selección de cervezas bien frías ideales para maridar tus piezas de sushi.",
+                img: "https://images.unsplash.com/photo-1608270586620-248524c67de9?q=80&w=600&auto=format&fit=crop"
+            }
+        ];
+
+        // Render Menu Items
+        function renderMenu(items) {
+            const container = document.getElementById('menuGrid');
+            container.innerHTML = '';
+
+            items.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'glass-card rounded-2xl overflow-hidden flex flex-col justify-between group cursor-pointer';
+                card.onclick = () => openModal(item);
+
+                card.innerHTML = `
+                    <div>
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="${item.img}" alt="${item.name}" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                            ${item.badge ? `<span class="absolute top-3 left-3 bg-brand-gold text-brand-dark font-bold text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full shadow">${item.badge}</span>` : ''}
+                        </div>
+                        <div class="p-5 space-y-2">
+                            <div class="flex justify-between items-start">
+                                <h3 class="font-cinzel font-bold text-lg text-brand-sand group-hover:text-brand-gold transition">${item.name}</h3>
+                                <span class="text-xs font-mono text-brand-gold bg-brand-bamboo/30 px-2 py-0.5 rounded border border-brand-gold/20">${item.price}</span>
+                            </div>
+                            <p class="text-brand-muted text-xs line-clamp-2">${item.desc}</p>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0">
+                        <button class="w-full py-2 rounded-xl bg-brand-dark/80 hover:bg-brand-gold hover:text-brand-dark text-brand-sand text-xs font-semibold transition border border-white/10 flex items-center justify-center gap-1">
+                            <i class="fa-solid fa-eye"></i> Detalle & Pedir
+                        </button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Filter Menu Function
+        function filterMenu(cat) {
+            // Update Active Tab Styles
+            document.querySelectorAll('.menu-tab').forEach(tab => {
+                tab.classList.remove('bg-brand-gold', 'text-brand-dark');
+                tab.classList.add('bg-brand-card', 'text-brand-sand');
+            });
+            event.currentTarget.classList.remove('bg-brand-card', 'text-brand-sand');
+            event.currentTarget.classList.add('bg-brand-gold', 'text-brand-dark');
+
+            if(cat === 'all') {
+                renderMenu(menuItems);
+            } else {
+                const filtered = menuItems.filter(i => i.category === cat);
+                renderMenu(filtered);
+            }
+        }
+
+        // Modal Handlers
+        function openModal(item) {
+            const modal = document.getElementById('itemModal');
+            const modalContent = document.getElementById('modalContent');
+            const modalBody = document.getElementById('modalBody');
+
+            modalBody.innerHTML = `
+                <div class="space-y-4">
+                    <img src="${item.img}" alt="${item.name}" class="w-full h-48 object-cover rounded-xl border border-brand-gold/20">
+                    <div class="flex justify-between items-center">
+                        <h3 class="font-cinzel text-2xl font-bold text-brand-sand">${item.name}</h3>
+                        <span class="text-sm font-mono text-brand-gold bg-brand-bamboo/40 px-3 py-1 rounded-full border border-brand-gold/30">${item.price}</span>
+                    </div>
+                    <p class="text-brand-sand/80 text-sm leading-relaxed">${item.desc}</p>
+                    <div class="pt-4 border-t border-white/10 flex flex-col gap-2">
+                        <a href="https://menu.fu.do/jardinzen" target="_blank" rel="noopener" class="w-full py-3 rounded-xl bg-brand-gold text-brand-dark hover:bg-brand-goldHover font-bold text-center text-sm transition">
+                            <i class="fa-solid fa-cart-shopping mr-2"></i> Ordenar en Pedidos Online (menu.fu.do/jardinzen)
+                        </a>
+                        <button onclick="closeModal()" class="w-full py-2.5 rounded-xl border border-white/10 text-brand-muted hover:text-brand-sand text-xs transition">
+                            Cerrar
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modalContent.classList.remove('scale-95', 'opacity-0');
+                modalContent.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('itemModal');
+            const modalContent = document.getElementById('modalContent');
+            
+            modalContent.classList.remove('scale-100', 'opacity-100');
+            modalContent.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 200);
+        }
+
+        // Mobile Menu Toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Initialize on load
+        window.onload = function() {
+            renderMenu(menuItems);
+            document.getElementById('year').textContent = new Date().getFullYear();
+        };
+    </script>
+</body>
+</html>
